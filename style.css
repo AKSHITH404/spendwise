@@ -1,0 +1,59 @@
+/* Basic settings */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, sans-serif; background: #f4f7fb; color: #333; }
+
+/* Navigation bar */
+.navbar { background: #1f3a5f; color: white; padding: 15px 30px;
+          display: flex; justify-content: space-between; align-items: center;
+          flex-wrap: wrap; position: sticky; top: 0; }
+.navbar a { color: white; text-decoration: none; margin-left: 20px; }
+
+/* Sections */
+.section { padding: 40px 30px; max-width: 1000px; margin: auto; }
+.grey { background: #e9f0fb; max-width: 100%; }
+.grey > * { max-width: 940px; margin-left: auto; margin-right: auto; }
+h2 { text-align: center; color: #1f3a5f; margin-bottom: 20px; }
+h3 { margin: 25px 0 10px 0; color: #1f3a5f; }
+
+/* Summary cards */
+.cards { display: flex; gap: 20px; }
+.card { flex: 1; background: white; padding: 20px; text-align: center;
+        border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.card h3 { font-size: 26px; margin: 8px 0 0 0; }
+.green { border-top: 5px solid green; }  .green h3 { color: green; }
+.red { border-top: 5px solid red; }      .red h3 { color: red; }
+.blue { border-top: 5px solid #2f6fed; } .blue h3 { color: #2f6fed; }
+
+/* Tables */
+.table-box { overflow-x: auto; }
+table { width: 100%; background: white; border-collapse: collapse; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background: #dbe6f5; }
+.greenText { color: green; font-weight: bold; }
+.redText { color: red; font-weight: bold; }
+
+/* Form */
+.form { max-width: 500px !important; background: white; padding: 25px;
+        border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+.form label { display: block; margin-top: 12px; font-weight: bold; }
+.form input, .form select { width: 100%; padding: 10px; margin-top: 5px; }
+.form button { width: 100%; padding: 12px; margin-top: 20px; background: #2f6fed;
+               color: white; border: none; font-size: 16px; cursor: pointer; }
+#message { margin-top: 12px; text-align: center; font-weight: bold; }
+
+/* Filters and buttons */
+.filters { display: flex; gap: 10px; margin-bottom: 15px; }
+.filters input { flex: 2; padding: 10px; }
+.filters select { flex: 1; padding: 10px; }
+.clear { margin-top: 20px; padding: 10px 20px; background: red; color: white;
+         border: none; cursor: pointer; }
+.editBtn { background: orange; border: none; padding: 5px 8px; cursor: pointer; }
+.deleteBtn { background: red; color: white; border: none; padding: 5px 8px; cursor: pointer; }
+
+.footer { background: #1f3a5f; color: white; text-align: center; padding: 20px; }
+
+/* Mobile view */
+@media (max-width: 700px) {
+  .cards, .filters { flex-direction: column; }
+}

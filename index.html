@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendWise - Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="navbar">
+    <h2>💰 SpendWise</h2>
+    <div>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#add">Add Transaction</a>
+      <a href="#transactions">Transactions</a>
+      <a href="#reports">Reports</a>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="section" id="dashboard">
+    <h2>Dashboard</h2>
+    <div class="cards">
+      <div class="card green">Total Income<h3 id="totalIncome">₹0</h3></div>
+      <div class="card red">Total Expenses<h3 id="totalExpense">₹0</h3></div>
+      <div class="card blue">Balance<h3 id="balance">₹0</h3></div>
+    </div>
+
+    <h3>Recent Transactions</h3>
+    <table>
+      <tr><th>Description</th><th>Type</th><th>Amount</th><th>Date</th></tr>
+      <tbody id="recentBody"></tbody>
+    </table>
+
+    <h3>Monthly Expense Summary</h3>
+    <table>
+      <tr><th>Month</th><th>Total Expenses</th></tr>
+      <tbody id="dashMonthBody"></tbody>
+    </table>
+  </div>
+
+  <!-- Add Transaction -->
+  <div class="section grey" id="add">
+    <h2 id="formTitle">Add Transaction</h2>
+    <div class="form">
+      <label>Type</label>
+      <select id="type">
+        <option value="">Select type</option>
+        <option>Income</option>
+        <option>Expense</option>
+      </select>
+
+      <label>Description</label>
+      <input type="text" id="description" placeholder="Enter description">
+
+      <label>Amount</label>
+      <input type="number" id="amount" placeholder="Enter amount">
+
+      <label>Category</label>
+      <select id="category">
+        <option value="">Select category</option>
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Education</option>
+        <option>Shopping</option>
+        <option>Bills</option>
+        <option>Salary</option>
+        <option>Entertainment</option>
+        <option>Other</option>
+      </select>
+
+      <label>Date</label>
+      <input type="date" id="date">
+
+      <button id="saveBtn" onclick="saveTransaction()">Add Transaction</button>
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <!-- All Transactions -->
+  <div class="section" id="transactions">
+    <h2>All Transactions</h2>
+
+    <!-- Search, filter and sort: showAll() runs every time they change -->
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search description" oninput="showAll()">
+      <select id="filterType" onchange="showAll()">
+        <option>All</option>
+        <option>Income</option>
+        <option>Expense</option>
+      </select>
+      <select id="filterCategory" onchange="showAll()">
+        <option>All</option>
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Education</option>
+        <option>Shopping</option>
+        <option>Bills</option>
+        <option>Salary</option>
+        <option>Entertainment</option>
+        <option>Other</option>
+      </select>
+      <select id="sortOrder" onchange="showAll()">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+      </select>
+    </div>
+
+    <div class="table-box">
+      <table>
+        <tr>
+          <th>ID</th><th>Description</th><th>Type</th><th>Category</th>
+          <th>Amount</th><th>Date</th><th>Action</th>
+        </tr>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <button class="clear" onclick="clearAll()">Clear All Data</button>
+  </div>
+
+  <!-- Reports -->
+  <div class="section grey" id="reports">
+    <h2>Reports</h2>
+    <p>Total Income: <b class="greenText" id="repIncome"></b></p>
+    <p>Total Expenses: <b class="redText" id="repExpense"></b></p>
+    <p>Remaining Balance: <b id="repBalance"></b></p>
+
+    <h3>Category-wise Expenses</h3>
+    <table>
+      <tr><th>Category</th><th>Total Spent</th></tr>
+      <tbody id="categoryBody"></tbody>
+    </table>
+
+    <h3>Monthly Summary</h3>
+    <table>
+      <tr><th>Month</th><th>Income</th><th>Expenses</th></tr>
+      <tbody id="monthBody"></tbody>
+    </table>
+  </div>
+
+  <div class="footer">© 2026 SpendWise | Personal Expense Tracker</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
